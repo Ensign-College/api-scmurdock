@@ -3,8 +3,8 @@ const express = require('express');//express makes APIs - connect frontend to da
 //import express from 'express';
 
 const app = express();//create an express application
-
-app.listen(3000);//listen for web requests from the frontend and don't stop
+const port =3000;//this is the port number
+app.listen(port);//listen for web requests from the frontend and don't stop
 
 const boxes = [
     {boxId:1},
