@@ -60,9 +60,4 @@ Resources:
           ToPort: 6379
           CidrIp: 0.0.0.0/0
 
-#Outputs:
-#  MyApiEndpoint:
-#    Description: "API Gateway endpoint URL"
-#    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/myendpoint"
-#  RedisEndpoint: Description: "ElastiCache Redis Endpoint" Value: !GetAtt MyElasticacheRedis.ConfigurationEndpoint.Address
 
