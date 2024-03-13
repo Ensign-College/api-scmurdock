@@ -104,18 +104,4 @@ exports.ordersByIdHandler = async (event, context) => {
     }
 };
 
-exports.boxesHandler = async (event, context) => {
-    try {
-        const boxes = await redisClient.json.get('boxes', { path: '$' });
-        return {
-            statusCode: 200,
-            body: JSON.stringify(boxes[0])
-        };
-    } catch (error) {
-        console.error(error);
-        return {
-            statusCode: 500,
-            body: "Internal Server Error"
-        };
-    }
-};
+
