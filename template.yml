@@ -54,10 +54,13 @@ Resources:
             Path: /boxes
             Method: get
 
+
+
   # Add IAM roles with required tag permissions
   OrderItemsFunctionRole:
     Type: AWS::IAM::Role
     Properties:
+      RoleName: MyOrderItemsFunctionRole    
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
