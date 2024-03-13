@@ -19,6 +19,61 @@ Resources:
 #          Properties:
 #            Path: /myendpoint
 #            Method: get
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  ApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: index.ordersHandler
+      Runtime: nodejs14.x
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /orders
+            Method: post
+
+  OrderItemsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: index.orderItemsHandler
+      Runtime: nodejs14.x
+      Events:
+        OrderItemsApiEvent:
+          Type: Api
+          Properties:
+            Path: /orderItems
+            Method: post
+
+  OrdersByIdFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: index.ordersByIdHandler
+      Runtime: nodejs14.x
+      Events:
+        OrdersByIdApiEvent:
+          Type: Api
+          Properties:
+            Path: /orders/{orderId}
+            Method: get
+
+  BoxesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: index.boxesHandler
+      Runtime: nodejs14.x
+      Events:
+        BoxesApiEvent:
+          Type: Api
+          Properties:
+            Path: /boxes
+            Method: get
 
   MyVPC:
     Type: AWS::EC2::VPC
