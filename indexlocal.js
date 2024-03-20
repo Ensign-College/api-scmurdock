@@ -70,7 +70,7 @@ app.get("/orders/:orderId", async (req,res)=>{
     //get the order from the database
     const orderId = req.params.orderId;
     let order = await getOrder({redisClient, orderId});
-
+    res.json(order)
 }
 )
 
